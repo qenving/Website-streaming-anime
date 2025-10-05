@@ -1,4 +1,4 @@
-# NeonWave Anime – Frontend Concept
+# NeonWave Anime  Frontend Concept
 
 NeonWave is a frontend-only streaming concept inspired by Zoro.to and Netflix. It ships as a Vite + React + Tailwind CSS project with dummy data, LocalStorage persistence, and API placeholder helpers so you can connect a real backend when ready.
 
@@ -28,6 +28,37 @@ Create a `.env` (or `.env.local`) file to configure canonical metadata and API c
 VITE_SITE_URL=https://neonwave.app
 VITE_API_URL=https://api.neonwave.app
 ```
+### Backend configuration
+```
+PORT=4000
+CLIENT_URL=http://localhost:5173
+JWT_ACCESS_SECRET=replace-me
+JWT_REFRESH_SECRET=replace-me-too
+DB_FILE=server/db/data.sqlite
+
+# Optional: wire up AniDB live data
+ANIDB_ENABLED=true
+ANIDB_CLIENT=your-registered-client-string
+ANIDB_CLIENT_VERSION=1
+ANIDB_USERNAME=optional
+ANIDB_PASSWORD=optional
+ANIDB_CACHE_TTL=3600
+```
+
+> **Tip:** AniDB requires you to register a client string. Visit [AniDB's API documentation](https://wiki.anidb.net/HTTP_API_Definition) to create credentials. When the credentials are present the backend will hydrate catalog data with live recommendations and expose `/api/anidb/*` endpoints.
+
+## Database & Seeding
+
+The dummy JSON store has been replaced with a production-ready SQLite bundle powered by `better-sqlite3`. Tables cover users, refresh tokens, anime metadata, episodes, community posts, favorites, and premium plans.
+
+To bootstrap local data run:
+
+```
+npm run db:reset
+npm run db:seed
+```
+
+The seed script now fetches live AniDB recommendations (when credentials are supplied) and folds them into the NeonWave catalog alongside curated sample titles. Passwords for the built-in admin/demo accounts are configurable through `SEED_ADMIN_PASSWORD` and `SEED_DEMO_PASSWORD`.
 
 ## Project Structure
 ```
@@ -43,9 +74,9 @@ scripts/
 ```
 
 ## Core Data & Persistence
-- `src/utils/dummyData.js` – Featured anime, genres, premium plan definitions, community seed posts, and marketing copy.
-- `src/utils/storage.js` – LocalStorage helpers for user profile, favorites, theme, and community posts.
-- `src/utils/apiPlaceholders.js` – Promise-based facades that simulate network latency. Swap these with real fetch calls when you plug in an API.
+- `src/utils/dummyData.js`  Featured anime, genres, premium plan definitions, community seed posts, and marketing copy.
+- `src/utils/storage.js`  LocalStorage helpers for user profile, favorites, theme, and community posts.
+- `src/utils/apiPlaceholders.js`  Promise-based facades that simulate network latency. Swap these with real fetch calls when you plug in an API.
 
 ## UI/UX & SEO Notes
 - Theme: Neon gradients, glassmorphism accents, and smooth hover states deliver a futuristic anime vibe. Dark mode is default with a one-click light mode.

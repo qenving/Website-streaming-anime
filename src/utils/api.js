@@ -123,3 +123,18 @@ export const fetchDashboard = async () => {
   const { data } = await httpClient.get("/users/me/dashboard");
   return data;
 };
+
+export const fetchAniDbRandom = async ({ refresh = false } = {}) => {
+  const { data } = await httpClient.get("/anidb/random", {
+    params: refresh ? { refresh } : undefined,
+  });
+  return data.items ?? [];
+};
+
+export const fetchAniDbAnime = async (id, { refresh = false } = {}) => {
+  if (!id) return null;
+  const { data } = await httpClient.get(`/anidb/anime/${id}`, {
+    params: refresh ? { refresh } : undefined,
+  });
+  return data.anime ?? null;
+};
