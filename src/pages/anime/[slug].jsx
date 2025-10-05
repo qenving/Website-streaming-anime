@@ -123,7 +123,7 @@ const AnimeDetailPage = () => {
             {favoriteError && <p className="text-xs font-semibold text-red-500 dark:text-red-400">{favoriteError}</p>}
           </div>
           <div className="flex flex-col gap-6">
-            <Player title={anime.title} poster={anime.banner} />
+            <Player title={anime.title} poster={anime.banner} videoSrc={anime.heroVideo} sources={anime.heroSources} />
             <div className="rounded-3xl border border-slate-200 bg-white p-6 text-sm text-slate-600 transition dark:border-white/10 dark:bg-white/5 dark:text-gray-300">
               <p>
                 This is a placeholder player. Connect to your media API and pass down stream URLs to unlock playback and

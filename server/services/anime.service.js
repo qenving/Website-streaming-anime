@@ -2,6 +2,65 @@ import { getDb } from "../db/database.js";
 import { AppError } from "../utils/errors.js";
 import { remember } from "../utils/cache.js";
 
+const extensionToMime = {
+  mp4: "video/mp4",
+  m4v: "video/mp4",
+  webm: "video/webm",
+  ogv: "video/ogg",
+  mov: "video/quicktime",
+  mkv: "video/x-matroska",
+  m3u8: "application/x-mpegURL",
+};
+
+const guessMimeType = (src, provided) => {
+  if (provided) return provided;
+  if (!src) return undefined;
+  const clean = src.split("?")[0].split("#")[0];
+  const extension = clean.includes(".") ? clean.split(".").pop()?.toLowerCase() : "";
+  return extensionToMime[extension] ?? undefined;
+};
+
+const parseSourcePayload = (payload) => {
+  if (!payload) return [];
+  if (Array.isArray(payload)) return payload;
+  if (typeof payload === "string") {
+    try {
+      const parsed = JSON.parse(payload);
+      return Array.isArray(parsed) ? parsed : [];
+    } catch (error) {
+      return [];
+    }
+  }
+  return [];
+};
+
+const normalizeSourceList = (payload, fallback) => {
+  const raw = parseSourcePayload(payload);
+  const normalized = [];
+  const seen = new Set();
+
+  const addEntry = (entry) => {
+    if (!entry) return;
+    const src = typeof entry === "string" ? entry : entry.src ?? entry.url ?? entry.href;
+    if (!src || seen.has(src)) return;
+    seen.add(src);
+    normalized.push({
+      src,
+      type: guessMimeType(src, typeof entry === "object" ? entry.type : undefined),
+      label:
+        typeof entry === "object"
+          ? entry.label ?? entry.name ?? entry.quality ?? undefined
+          : undefined,
+    });
+  };
+
+  raw.forEach((entry) => addEntry(entry));
+  if (!normalized.length && fallback) {
+    addEntry({ src: fallback });
+  }
+  return normalized;
+};
+
 const buildAnimeIndex = () => {
   const db = getDb();
   const animeRows = db.prepare("SELECT * FROM anime").all();
@@ -40,6 +99,8 @@ const buildAnimeIndex = () => {
 
   const episodesByAnime = new Map();
   episodeRows.forEach((row) => {
+    const sources = normalizeSourceList(row.video_sources, row.video_url);
+    const primarySource = sources[0]?.src ?? row.video_url ?? null;
     const collection = episodesByAnime.get(row.anime_id) ?? [];
     collection.push({
       id: row.id,
@@ -48,7 +109,8 @@ const buildAnimeIndex = () => {
       title: row.title,
       synopsis: row.synopsis,
       duration: row.duration,
-      videoUrl: row.video_url,
+      videoUrl: primarySource,
+      videoSources: sources,
       thumbnail: row.thumbnail,
       airDate: row.air_date,
       createdAt: row.created_at,
@@ -60,6 +122,16 @@ const buildAnimeIndex = () => {
   const animeSerialized = animeRows.map((row) => {
     const animeEpisodes = episodesByAnime.get(row.id) ?? [];
     const firstEpisode = animeEpisodes.find((episode) => episode.number === 1) ?? animeEpisodes[0];
+    const heroSources = normalizeSourceList(row.hero_sources, row.hero_video);
+    const heroVideo = heroSources[0]?.src ?? row.hero_video ?? null;
+    if (heroVideo && animeEpisodes.length) {
+      animeEpisodes.forEach((episode) => {
+        if (!episode.videoUrl) {
+          episode.videoSources = normalizeSourceList(episode.videoSources, heroVideo);
+          episode.videoUrl = episode.videoSources[0]?.src ?? heroVideo;
+        }
+      });
+    }
     const serialized = {
       id: row.id,
       slug: row.slug,
@@ -74,7 +146,8 @@ const buildAnimeIndex = () => {
       tags: Array.from(new Set(tagsByAnime.get(row.id) ?? [])),
       banner: row.banner,
       thumbnail: row.thumbnail,
-      heroVideo: row.hero_video,
+      heroVideo,
+      heroSources,
       isFeatured: Boolean(row.is_featured),
       isPopular: Boolean(row.is_popular),
       isTrending: Boolean(row.is_trending),

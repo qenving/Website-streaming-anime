@@ -91,6 +91,19 @@ const WatchEpisodePage = () => {
     });
   };
 
+  const episodeSources = currentEpisode?.videoSources ?? [];
+  const heroSources = anime?.heroSources ?? [];
+  const resolvedSources = useMemo(() => {
+    if (!isPlayerVisible) return [];
+    if (episodeSources.length) return episodeSources;
+    if (heroSources.length) return heroSources;
+    return [];
+  }, [episodeSources, heroSources, isPlayerVisible]);
+
+  const resolvedFallback = isPlayerVisible
+    ? currentEpisode?.videoUrl ?? anime?.heroVideo
+    : undefined;
+
   if (animeLoading || episodesLoading || !anime || !currentEpisode) {
     return (
       <div className="container py-24">
@@ -134,7 +147,12 @@ const WatchEpisodePage = () => {
       </header>
 
       <div ref={playerRef}>
-        <Player title={anime.title} videoSrc={isPlayerVisible ? anime.heroVideo : undefined} poster={anime.banner} />
+        <Player
+          title={anime.title}
+          videoSrc={resolvedFallback}
+          sources={resolvedSources}
+          poster={anime.banner}
+        />
       </div>
 
       <div className="flex flex-wrap items-center justify-between gap-4 text-slate-700 transition dark:text-gray-300">

@@ -9,6 +9,8 @@ import {
   homepageStats,
   premiumBenefits,
   premiumPlans,
+  aboutContent,
+  footerContent,
 } from "./seedData.js";
 import { hashPassword } from "../utils/password.js";
 import { loadAniDbSeed } from "../services/anidbSeed.service.js";
@@ -57,12 +59,64 @@ export const seedDatabase = async () => {
   const baseSeed = buildAnimeSeed();
   const anidbSeed = await loadAniDbSeed();
 
+  const contentRecords = [
+    { key: "about", payload: JSON.stringify(aboutContent), updated_at: timestamp },
+    { key: "footer", payload: JSON.stringify(footerContent), updated_at: timestamp },
+  ];
+
   const usedSlugs = new Set();
   const animeRecords = [];
   const genresRecords = [];
   const tagsRecords = [];
   const relationRecords = [];
   const episodeRecords = [];
+
+  const extensionToMime = {
+    mp4: "video/mp4",
+    m4v: "video/mp4",
+    webm: "video/webm",
+    ogv: "video/ogg",
+    mov: "video/quicktime",
+    mkv: "video/x-matroska",
+    m3u8: "application/x-mpegURL",
+  };
+
+  const guessMime = (src, provided) => {
+    if (provided) return provided;
+    if (!src) return undefined;
+    const clean = src.split("?")[0].split("#")[0];
+    const extension = clean.includes(".") ? clean.split(".").pop()?.toLowerCase() : "";
+    return extensionToMime[extension] ?? undefined;
+  };
+
+  const normalizeSources = (sources, fallback) => {
+    const list = Array.isArray(sources) ? sources : sources ? [sources] : [];
+    const normalized = [];
+    const seen = new Set();
+
+    const pushSource = (entry) => {
+      if (!entry) return;
+      const src = typeof entry === "string" ? entry : entry.src ?? entry.url ?? entry.href;
+      if (!src || seen.has(src)) return;
+      seen.add(src);
+      normalized.push({
+        src,
+        type: guessMime(src, typeof entry === "object" ? entry.type : undefined),
+        label:
+          typeof entry === "object"
+            ? entry.label ?? entry.name ?? entry.quality ?? undefined
+            : undefined,
+      });
+    };
+
+    list.forEach((entry) => pushSource(entry));
+    if (!normalized.length && fallback) {
+      pushSource({ src: fallback });
+    }
+    return normalized;
+  };
+
+  const serializeSources = (sources) => (sources.length ? JSON.stringify(sources) : null);
 
   const registerAnime = (anime, episodes) => {
     let slug = slugify(anime.slug ?? anime.title ?? nanoid());
@@ -76,6 +130,9 @@ export const seedDatabase = async () => {
     }
     usedSlugs.add(slug);
 
+    const heroSources = normalizeSources(anime.heroSources ?? anime.hero_sources, anime.heroVideo ?? anime.hero_video);
+    const heroVideo = heroSources[0]?.src ?? anime.heroVideo ?? anime.hero_video ?? null;
+
     const record = {
       id: anime.id ?? nanoid(),
       slug,
@@ -86,7 +143,8 @@ export const seedDatabase = async () => {
       studio: anime.studio ?? "Unknown Studio",
       status: anime.status ?? "Airing",
       release_year: anime.releaseYear ?? new Date().getFullYear(),
-      hero_video: anime.heroVideo ?? null,
+      hero_sources: serializeSources(heroSources),
+      hero_video: heroVideo,
       banner: anime.banner ?? anime.thumbnail ?? null,
       thumbnail: anime.thumbnail ?? anime.banner ?? null,
       is_featured: anime.isFeatured ? 1 : 0,
@@ -113,6 +171,11 @@ export const seedDatabase = async () => {
     });
 
     episodes.forEach((episode) => {
+      const episodeSources = normalizeSources(
+        episode.videoSources ?? episode.video_sources,
+        episode.videoUrl ?? episode.video_url ?? heroVideo
+      );
+
       episodeRecords.push({
         id: episode.id ?? nanoid(),
         anime_id: record.id,
@@ -123,7 +186,8 @@ export const seedDatabase = async () => {
           episode.summary ??
           "Catch the latest adventure straight from the NeonWave data stream.",
         duration: episode.duration ?? episode.length ?? null,
-        video_url: episode.videoUrl ?? episode.video_url ?? record.hero_video,
+        video_sources: serializeSources(episodeSources),
+        video_url: episodeSources[0]?.src ?? episode.videoUrl ?? episode.video_url ?? heroVideo,
         thumbnail: episode.thumbnail ?? record.thumbnail,
         air_date: episode.airDate ?? episode.air_date ?? timestamp,
         created_at: episode.createdAt ?? timestamp,
@@ -146,8 +210,8 @@ export const seedDatabase = async () => {
      VALUES (@id, @name, @email, @passwordHash, @role, @is_premium, @created_at, @updated_at)`
   );
   const insertAnime = db.prepare(
-    `INSERT INTO anime (id, slug, title, synopsis, rating, maturity, studio, status, release_year, hero_video, banner, thumbnail, is_featured, is_popular, is_trending, trending_rank, created_at, updated_at)
-     VALUES (@id, @slug, @title, @synopsis, @rating, @maturity, @studio, @status, @release_year, @hero_video, @banner, @thumbnail, @is_featured, @is_popular, @is_trending, @trending_rank, @created_at, @updated_at)`
+    `INSERT INTO anime (id, slug, title, synopsis, rating, maturity, studio, status, release_year, hero_sources, hero_video, banner, thumbnail, is_featured, is_popular, is_trending, trending_rank, created_at, updated_at)
+     VALUES (@id, @slug, @title, @synopsis, @rating, @maturity, @studio, @status, @release_year, @hero_sources, @hero_video, @banner, @thumbnail, @is_featured, @is_popular, @is_trending, @trending_rank, @created_at, @updated_at)`
   );
   const insertGenre = db.prepare(
     `INSERT INTO anime_genres (anime_id, genre) VALUES (@anime_id, @genre)`
@@ -157,8 +221,8 @@ export const seedDatabase = async () => {
     `INSERT INTO anime_relations (anime_id, related_anime_id) VALUES (?, ?)`
   );
   const insertEpisode = db.prepare(
-    `INSERT INTO episodes (id, anime_id, number, title, synopsis, duration, video_url, thumbnail, air_date, created_at)
-     VALUES (@id, @anime_id, @number, @title, @synopsis, @duration, @video_url, @thumbnail, @air_date, @created_at)`
+    `INSERT INTO episodes (id, anime_id, number, title, synopsis, duration, video_sources, video_url, thumbnail, air_date, created_at)
+     VALUES (@id, @anime_id, @number, @title, @synopsis, @duration, @video_sources, @video_url, @thumbnail, @air_date, @created_at)`
   );
   const insertPromo = db.prepare(
     `INSERT INTO promos (id, title, copy, action) VALUES (@id, @title, @copy, @action)`
@@ -174,6 +238,9 @@ export const seedDatabase = async () => {
   );
   const insertBenefit = db.prepare(
     `INSERT INTO benefits (id, title, description) VALUES (@id, @title, @description)`
+  );
+  const insertSiteContent = db.prepare(
+    `INSERT INTO site_content (key, payload, updated_at) VALUES (@key, @payload, @updated_at)`
   );
   const insertPost = db.prepare(
     `INSERT INTO community_posts (id, user_id, title, message, tags, created_at, updated_at)
@@ -211,6 +278,7 @@ export const seedDatabase = async () => {
 
     homepagePromos.forEach((promo) => insertPromo.run(promo));
     homepageStats.forEach((stat) => insertStat.run(stat));
+    contentRecords.forEach((record) => insertSiteContent.run(record));
 
     premiumPlans.forEach((plan) => {
       insertPlan.run({

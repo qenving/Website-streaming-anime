@@ -59,6 +59,16 @@ export const fetchPremiumContent = async () => {
   return data;
 };
 
+export const fetchSiteContent = async (key) => {
+  if (!key) return null;
+  const { data } = await httpClient.get(`/content/${key}`);
+  return data;
+};
+
+export const fetchAboutContent = () => fetchSiteContent("about");
+
+export const fetchFooterContent = () => fetchSiteContent("footer");
+
 export const fetchCommunityPosts = async () => {
   const { data } = await httpClient.get("/community/posts");
   return data.posts ?? [];

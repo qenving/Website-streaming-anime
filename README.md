@@ -1,6 +1,6 @@
 # NeonWave Anime  Frontend Concept
 
-NeonWave is a frontend-only streaming concept inspired by Zoro.to and Netflix. It ships as a Vite + React + Tailwind CSS project with dummy data, LocalStorage persistence, and API placeholder helpers so you can connect a real backend when ready.
+NeonWave is a frontend-first streaming concept inspired by Zoro.to and Netflix. It ships as a Vite + React + Tailwind CSS project backed by an Express + SQLite API, live AniDB seeding, and TanStack Query integrations so you can connect production infrastructure when ready.
 
 ## Highlights
 - Fully responsive layouts for desktop, tablet, and mobile.
@@ -68,15 +68,15 @@ src/
  +- hooks/           // Custom hooks (useAuth, useFavorites)
  +- pages/           // Route components (dynamic folders for slug/episode)
  +- styles/          // Tailwind-powered global styles
- +- utils/           // Dummy data, storage helpers, API placeholders
+ +- utils/           // HTTP client, storage helpers, and API wrappers
 scripts/
  +- postbuild.js     // Copies robots.txt into the production bundle
 ```
 
 ## Core Data & Persistence
-- `src/utils/dummyData.js`  Featured anime, genres, premium plan definitions, community seed posts, and marketing copy.
 - `src/utils/storage.js`  LocalStorage helpers for user profile, favorites, theme, and community posts.
 - `src/utils/apiPlaceholders.js`  Promise-based facades that simulate network latency. Swap these with real fetch calls when you plug in an API.
+- `site_content` table (seeded via `server/db/seedData.js`) stores about/marketing copy served through `/api/content/*` routes.
 
 ## UI/UX & SEO Notes
 - Theme: Neon gradients, glassmorphism accents, and smooth hover states deliver a futuristic anime vibe. Dark mode is default with a one-click light mode.
@@ -92,6 +92,8 @@ scripts/
 4. Extend the community page to hit a real-time backend for comments and likes.
 5. Update the Google Analytics ID in `index.html` (replace `G-XXXXXXX`) or hook up your privacy-friendly analytics of choice.
 6. Serve the built assets via a CDN or Nginx with `Cache-Control: public, s-maxage=604800, stale-while-revalidate=30` for HTML and API responses.
+
+For a deeper checklist covering what still needs to be hardened before production (streaming embeds, auth, payments, ops), review [`docs/production-readiness.md`](docs/production-readiness.md).
 
 ## Performance Snapshot
 - `npm run build` outputs a production bundle under 2 MB (about 412 kB main chunk plus 32 kB CSS) with tree-shaken component splits.

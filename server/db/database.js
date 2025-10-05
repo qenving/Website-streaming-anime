@@ -46,6 +46,7 @@ const runMigrations = (db) => {
       studio TEXT,
       status TEXT,
       release_year INTEGER,
+      hero_sources TEXT,
       hero_video TEXT,
       banner TEXT,
       thumbnail TEXT,
@@ -83,6 +84,7 @@ const runMigrations = (db) => {
       title TEXT NOT NULL,
       synopsis TEXT,
       duration INTEGER,
+      video_sources TEXT,
       video_url TEXT,
       thumbnail TEXT,
       air_date TEXT,
@@ -126,6 +128,12 @@ const runMigrations = (db) => {
       description TEXT NOT NULL
     );
 
+    CREATE TABLE IF NOT EXISTS site_content (
+      key TEXT PRIMARY KEY,
+      payload TEXT NOT NULL,
+      updated_at TEXT NOT NULL
+    );
+
     CREATE TABLE IF NOT EXISTS community_posts (
       id TEXT PRIMARY KEY,
       user_id TEXT NOT NULL,
@@ -165,6 +173,17 @@ const runMigrations = (db) => {
       FOREIGN KEY (anime_id) REFERENCES anime(id) ON DELETE CASCADE
     );
   `);
+
+  const ensureColumn = (table, column, definition) => {
+    const info = db.prepare(`PRAGMA table_info(${table})`).all();
+    const exists = info.some((row) => row.name === column);
+    if (!exists) {
+      db.exec(`ALTER TABLE ${table} ADD COLUMN ${definition}`);
+    }
+  };
+
+  ensureColumn("anime", "hero_sources", "hero_sources TEXT");
+  ensureColumn("episodes", "video_sources", "video_sources TEXT");
 };
 
 export const initDb = () => {
@@ -199,6 +218,7 @@ export const resetDb = () => {
     "plan_features",
     "plans",
     "benefits",
+    "site_content",
     "homepage_stats",
     "promos",
     "episodes",

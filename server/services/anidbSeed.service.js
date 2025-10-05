@@ -1,6 +1,7 @@
 import { nanoid } from "nanoid";
 import logger from "../config/logger.js";
 import { fetchAniDbRandom } from "./anidb.service.js";
+import { defaultStreamSources } from "../db/seedData.js";
 
 const sanitizeText = (value) =>
   value
@@ -64,7 +65,8 @@ export const loadAniDbSeed = async () => {
         tags: tagNames.filter(Boolean),
         banner: entry.picture ?? null,
         thumbnail: entry.picture ?? null,
-        heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+        heroVideo: defaultStreamSources[0]?.src ?? null,
+        heroSources: defaultStreamSources,
         isFeatured: index < 2,
         isPopular: rating >= 3.5,
         isTrending: index < 4,
@@ -91,7 +93,8 @@ export const loadAniDbSeed = async () => {
             sanitizeText(episode.summary) ||
             "Episode data sourced from AniDB. Add your localized synopsis for more context.",
           duration: episode.length ?? null,
-          videoUrl: null,
+          videoUrl: defaultStreamSources[0]?.src ?? null,
+          videoSources: defaultStreamSources,
           thumbnail: entry.picture ?? null,
           airDate: episode.airDate ?? timestamp,
           createdAt: timestamp,
