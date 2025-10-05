@@ -18,7 +18,15 @@ const env = {
     rateLimitMax: Number(process.env.RATE_LIMIT_MAX ?? 100),
   },
   database: {
-    file: process.env.DB_FILE ?? "server/db/data.json",
+    file: process.env.DB_FILE ?? "server/db/data.sqlite",
+  },
+  anidb: {
+    client: process.env.ANIDB_CLIENT ?? "",
+    clientVersion: process.env.ANIDB_CLIENT_VERSION ?? "1",
+    username: process.env.ANIDB_USERNAME ?? "",
+    password: process.env.ANIDB_PASSWORD ?? "",
+    cacheTtlSeconds: Number(process.env.ANIDB_CACHE_TTL ?? 3600),
+    enabled: process.env.ANIDB_ENABLED ? process.env.ANIDB_ENABLED === "true" : true,
   },
   cacheTtlSeconds: Number(process.env.CACHE_TTL_SECONDS ?? 60),
 };

@@ -1,61 +1,132 @@
-﻿import { getDb } from "../db/database.js";
+import { getDb } from "../db/database.js";
 import { AppError } from "../utils/errors.js";
 import { remember } from "../utils/cache.js";
 
-export const projectAnime = (anime, episodes) => {
-  const related = anime.related ?? [];
-  const animeEpisodes = episodes.filter((episode) => episode.animeId === anime.id);
-  const firstEpisode = animeEpisodes.find((episode) => episode.number === 1) ?? animeEpisodes[0];
-  return {
-    id: anime.id,
-    slug: anime.slug,
-    title: anime.title,
-    synopsis: anime.synopsis,
-    rating: anime.rating,
-    maturity: anime.maturity,
-    studio: anime.studio,
-    status: anime.status,
-    releaseYear: anime.releaseYear,
-    genres: anime.genres,
-    tags: anime.tags,
-    banner: anime.banner,
-    thumbnail: anime.thumbnail,
-    heroVideo: anime.heroVideo,
-    isFeatured: anime.isFeatured,
-    isPopular: anime.isPopular,
-    isTrending: anime.isTrending,
-    trendingRank: anime.trendingRank,
-    episodeCount: animeEpisodes.length,
-    firstEpisodeNumber: firstEpisode?.number ?? 1,
-    related,
-  };
+const buildAnimeIndex = () => {
+  const db = getDb();
+  const animeRows = db.prepare("SELECT * FROM anime").all();
+  const genreRows = db.prepare("SELECT anime_id, genre FROM anime_genres").all();
+  const tagRows = db.prepare("SELECT anime_id, tag FROM anime_tags").all();
+  const relationRows = db.prepare("SELECT anime_id, related_anime_id FROM anime_relations").all();
+  const episodeRows = db
+    .prepare("SELECT * FROM episodes ORDER BY anime_id ASC, number ASC")
+    .all();
+
+  const genresByAnime = new Map();
+  genreRows.forEach((row) => {
+    const collection = genresByAnime.get(row.anime_id) ?? [];
+    collection.push(row.genre);
+    genresByAnime.set(row.anime_id, collection);
+  });
+
+  const tagsByAnime = new Map();
+  tagRows.forEach((row) => {
+    const collection = tagsByAnime.get(row.anime_id) ?? [];
+    collection.push(row.tag);
+    tagsByAnime.set(row.anime_id, collection);
+  });
+
+  const idToSlug = new Map(animeRows.map((row) => [row.id, row.slug]));
+  const relationsByAnime = new Map();
+  relationRows.forEach((row) => {
+    const targetSlug = idToSlug.get(row.related_anime_id);
+    if (!targetSlug) return;
+    const collection = relationsByAnime.get(row.anime_id) ?? [];
+    if (!collection.includes(targetSlug)) {
+      collection.push(targetSlug);
+    }
+    relationsByAnime.set(row.anime_id, collection);
+  });
+
+  const episodesByAnime = new Map();
+  episodeRows.forEach((row) => {
+    const collection = episodesByAnime.get(row.anime_id) ?? [];
+    collection.push({
+      id: row.id,
+      animeId: row.anime_id,
+      number: row.number,
+      title: row.title,
+      synopsis: row.synopsis,
+      duration: row.duration,
+      videoUrl: row.video_url,
+      thumbnail: row.thumbnail,
+      airDate: row.air_date,
+      createdAt: row.created_at,
+    });
+    episodesByAnime.set(row.anime_id, collection);
+  });
+
+  const animeById = new Map();
+  const animeSerialized = animeRows.map((row) => {
+    const animeEpisodes = episodesByAnime.get(row.id) ?? [];
+    const firstEpisode = animeEpisodes.find((episode) => episode.number === 1) ?? animeEpisodes[0];
+    const serialized = {
+      id: row.id,
+      slug: row.slug,
+      title: row.title,
+      synopsis: row.synopsis,
+      rating: row.rating,
+      maturity: row.maturity,
+      studio: row.studio,
+      status: row.status,
+      releaseYear: row.release_year,
+      genres: Array.from(new Set(genresByAnime.get(row.id) ?? [])),
+      tags: Array.from(new Set(tagsByAnime.get(row.id) ?? [])),
+      banner: row.banner,
+      thumbnail: row.thumbnail,
+      heroVideo: row.hero_video,
+      isFeatured: Boolean(row.is_featured),
+      isPopular: Boolean(row.is_popular),
+      isTrending: Boolean(row.is_trending),
+      trendingRank: row.trending_rank,
+      episodeCount: animeEpisodes.length,
+      firstEpisodeNumber: firstEpisode?.number ?? 1,
+      related: relationsByAnime.get(row.id) ?? [],
+    };
+    animeById.set(row.id, serialized);
+    return serialized;
+  });
+
+  const animeBySlug = new Map(animeSerialized.map((entry) => [entry.slug, entry]));
+  const episodesBySlug = new Map(
+    animeRows.map((row) => [row.slug, (episodesByAnime.get(row.id) ?? []).slice()])
+  );
+
+  return { anime: animeSerialized, animeBySlug, animeById, episodesBySlug };
 };
 
-const cloneCollection = (items) => items.map((item) => ({ ...item }));
-
 export const getHomepageSections = async ({ refresh = false } = {}) => {
-  const cacheKey = "homepage_sections";
-  const factory = async () => {
+  const cacheKey = "homepage_sections_v2";
+  const factory = () => {
+    const { anime } = buildAnimeIndex();
     const db = getDb();
-    const { anime, episodes, stats, promos } = db.data;
-    const serialized = anime.map((entry) => projectAnime(entry, episodes));
-    const featured = serialized.filter((item) => item.isFeatured).slice(0, 5);
-    const trending = serialized
+    const promos = db.prepare("SELECT id, title, copy, action FROM promos").all();
+    const stats = db.prepare("SELECT id, label, value FROM homepage_stats").all();
+
+    const featured = anime
+      .filter((item) => item.isFeatured)
+      .sort((a, b) => (a.trendingRank ?? 999) - (b.trendingRank ?? 999))
+      .slice(0, 5);
+    const trending = anime
       .filter((item) => item.isTrending)
       .sort((a, b) => (a.trendingRank ?? 999) - (b.trendingRank ?? 999))
       .slice(0, 8);
-    const popular = serialized
+    const popular = anime
       .filter((item) => item.isPopular)
       .sort((a, b) => b.rating - a.rating)
       .slice(0, 9);
-    const latest = serialized.slice().sort((a, b) => b.releaseYear - a.releaseYear).slice(0, 8);
+    const latest = anime
+      .slice()
+      .sort((a, b) => (b.releaseYear ?? 0) - (a.releaseYear ?? 0))
+      .slice(0, 8);
+
     return {
       featured,
       trending,
       popular,
       latest,
-      promos: cloneCollection(promos ?? []),
-      stats: cloneCollection(stats ?? []),
+      promos: promos.map((item) => ({ ...item })),
+      stats: stats.map((item) => ({ ...item })),
     };
   };
 
@@ -66,17 +137,16 @@ export const getHomepageSections = async ({ refresh = false } = {}) => {
 };
 
 export const getAnimeList = ({ search, genre, page = 1, limit = 24 }) => {
-  const db = getDb();
-  const { anime, episodes } = db.data;
-  const serialized = anime.map((entry) => projectAnime(entry, episodes));
-  let filtered = serialized;
+  const { anime } = buildAnimeIndex();
+  let filtered = anime;
   if (search) {
     const query = search.toLowerCase();
     filtered = filtered.filter(
       (item) =>
         item.title.toLowerCase().includes(query) ||
         item.synopsis.toLowerCase().includes(query) ||
-        item.genres.some((genreItem) => genreItem.toLowerCase().includes(query))
+        item.genres.some((genreItem) => genreItem.toLowerCase().includes(query)) ||
+        item.tags.some((tag) => tag.toLowerCase().includes(query))
     );
   }
   if (genre) {
@@ -96,23 +166,21 @@ export const getAnimeList = ({ search, genre, page = 1, limit = 24 }) => {
 };
 
 export const getAnimeBySlug = (slug) => {
-  const db = getDb();
-  const record = db.data.anime.find((entry) => entry.slug === slug);
+  const { animeBySlug } = buildAnimeIndex();
+  const record = animeBySlug.get(slug);
   if (!record) {
     throw new AppError("Anime not found", 404);
   }
-  return projectAnime(record, db.data.episodes);
+  return record;
 };
 
 export const getEpisodesBySlug = (slug, { page = 1, pageSize = 12 }) => {
-  const db = getDb();
-  const anime = db.data.anime.find((entry) => entry.slug === slug);
+  const { animeBySlug, episodesBySlug } = buildAnimeIndex();
+  const anime = animeBySlug.get(slug);
   if (!anime) {
     throw new AppError("Anime not found", 404);
   }
-  const episodes = db.data.episodes
-    .filter((episode) => episode.animeId === anime.id)
-    .sort((a, b) => a.number - b.number);
+  const episodes = (episodesBySlug.get(slug) ?? []).slice();
   const pageNumber = Number(page) || 1;
   const size = Number(pageSize) || 12;
   const start = (pageNumber - 1) * size;
@@ -128,21 +196,22 @@ export const getEpisodesBySlug = (slug, { page = 1, pageSize = 12 }) => {
 };
 
 export const getRelatedAnime = (slug) => {
-  const db = getDb();
-  const base = db.data.anime.find((entry) => entry.slug === slug);
+  const { anime, animeBySlug } = buildAnimeIndex();
+  const base = animeBySlug.get(slug);
   if (!base) {
     throw new AppError("Anime not found", 404);
   }
-  const episodes = db.data.episodes;
-  const serialized = db.data.anime
+  const genres = new Set(base.genres);
+  return anime
     .filter((entry) => entry.slug !== slug)
-    .filter((entry) => base.related?.includes(entry.slug) || entry.genres.some((genre) => base.genres.includes(genre)))
-    .map((entry) => projectAnime(entry, episodes))
+    .filter((entry) => base.related.includes(entry.slug) || entry.genres.some((genre) => genres.has(genre)))
     .slice(0, 8);
-  return serialized;
 };
 
 export const getGenres = () => {
   const db = getDb();
-  return db.data.genres ?? [];
+  const rows = db.prepare("SELECT DISTINCT genre FROM anime_genres ORDER BY genre ASC").all();
+  return rows.map((row) => row.genre);
 };
+
+export const loadAnimeIndex = () => buildAnimeIndex();

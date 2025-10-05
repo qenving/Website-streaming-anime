@@ -20,6 +20,8 @@
   fetchFavorites,
   toggleFavoriteAnime,
   fetchDashboard,
+  fetchAniDbRandom,
+  fetchAniDbAnime,
 } from "./api";
 
 export {
@@ -44,4 +46,6 @@ export {
   fetchFavorites,
   toggleFavoriteAnime,
   fetchDashboard,
+  fetchAniDbRandom,
+  fetchAniDbAnime,
 };

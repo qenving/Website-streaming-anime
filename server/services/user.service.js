@@ -1,10 +1,12 @@
-﻿import { nanoid } from "nanoid";
 import { getDb } from "../db/database.js";
 import { AppError } from "../utils/errors.js";
-import { projectAnime } from "./anime.service.js";
+import { loadAnimeIndex } from "./anime.service.js";
 
-const ensureUser = (db, userId) => {
-  const user = db.data.users.find((entry) => entry.id === userId);
+const fetchUser = (userId) => {
+  const db = getDb();
+  const user = db
+    .prepare("SELECT id, name, email, is_premium, role, created_at, updated_at FROM users WHERE id = ?")
+    .get(userId);
   if (!user) {
     throw new AppError("User not found", 404);
   }
@@ -13,71 +15,67 @@ const ensureUser = (db, userId) => {
 
 export const getUserFavorites = (userId) => {
   const db = getDb();
-  const user = ensureUser(db, userId);
-  const favorites = db.data.favorites
-    .filter((entry) => entry.userId === userId)
-    .sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-  const animeMap = new Map(db.data.anime.map((item) => [item.id, item]));
+  const user = fetchUser(userId);
+  const favorites = db
+    .prepare("SELECT anime_id, created_at FROM favorites WHERE user_id = ? ORDER BY created_at DESC")
+    .all(userId);
+  const { animeById } = loadAnimeIndex();
   const serialized = favorites
-    .map((favorite) => {
-      const anime = animeMap.get(favorite.animeId);
-      if (!anime) return null;
-      return projectAnime(anime, db.data.episodes);
-    })
+    .map((entry) => animeById.get(entry.anime_id))
     .filter(Boolean);
   return {
     user: {
       id: user.id,
       name: user.name,
       email: user.email,
-      isPremium: user.isPremium,
+      isPremium: Boolean(user.is_premium),
       role: user.role,
     },
     favorites: serialized,
   };
 };
 
-export const toggleFavorite = async (userId, slug) => {
+export const toggleFavorite = (userId, slug) => {
   const db = getDb();
-  const user = ensureUser(db, userId);
-  const anime = db.data.anime.find((entry) => entry.slug === slug);
+  const user = fetchUser(userId);
+  const { animeBySlug } = loadAnimeIndex();
+  const anime = animeBySlug.get(slug);
   if (!anime) {
     throw new AppError("Anime not found", 404);
   }
-  const existing = db.data.favorites.find((entry) => entry.userId === userId && entry.animeId === anime.id);
+
+  const existing = db
+    .prepare("SELECT user_id FROM favorites WHERE user_id = ? AND anime_id = ?")
+    .get(userId, anime.id);
   if (existing) {
-    db.data.favorites = db.data.favorites.filter((entry) => entry.id !== existing.id);
-    await db.write();
+    db.prepare("DELETE FROM favorites WHERE user_id = ? AND anime_id = ?").run(userId, anime.id);
     return { favorited: false };
   }
-  if (!user.isPremium) {
-    const currentNonPremiumFavorites = db.data.favorites.filter((entry) => entry.userId === userId).length;
-    if (currentNonPremiumFavorites >= 3) {
+
+  if (!user.is_premium) {
+    const count = db.prepare("SELECT COUNT(*) AS total FROM favorites WHERE user_id = ?").get(userId)?.total ?? 0;
+    if (count >= 3) {
       throw new AppError("Upgrade to Prime to save more than 3 favorites", 402);
     }
   }
-  db.data.favorites.push({
-    id: nanoid(),
-    userId,
-    animeId: anime.id,
-    createdAt: new Date().toISOString(),
-  });
-  await db.write();
+
+  db
+    .prepare("INSERT INTO favorites (user_id, anime_id, created_at) VALUES (?, ?, ?)")
+    .run(userId, anime.id, new Date().toISOString());
   return { favorited: true };
 };
 
 export const getUserDashboard = (userId) => {
-  const db = getDb();
-  const userSafe = ensureUser(db, userId);
+  const user = fetchUser(userId);
   const favorites = getUserFavorites(userId).favorites;
   return {
     profile: {
-      id: userSafe.id,
-      name: userSafe.name,
-      email: userSafe.email,
-      isPremium: userSafe.isPremium,
-      role: userSafe.role,
-      createdAt: userSafe.createdAt,
+      id: user.id,
+      name: user.name,
+      email: user.email,
+      isPremium: Boolean(user.is_premium),
+      role: user.role,
+      createdAt: user.created_at,
     },
     favorites,
   };

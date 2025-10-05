@@ -14,7 +14,7 @@ const extractToken = (req) => {
 const attachUser = async (req, token) => {
   const decoded = verifyAccessToken(token);
   const db = getDb();
-  const user = db.data.users.find((entry) => entry.id === decoded.sub);
+  const user = db.prepare("SELECT id, email, name, role, is_premium FROM users WHERE id = ?").get(decoded.sub);
   if (!user) {
     throw new AppError("User associated with token not found", 401);
   }
@@ -23,7 +23,7 @@ const attachUser = async (req, token) => {
     email: user.email,
     name: user.name,
     role: user.role,
-    isPremium: user.isPremium,
+    isPremium: Boolean(user.is_premium),
   };
 };
 
