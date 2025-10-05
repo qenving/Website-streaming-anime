@@ -1,0 +1,1285 @@
+{
+  "users": [
+    {
+      "id": "j3rSc0tIUgYvDK7UlnLH8",
+      "name": "Nova Admin",
+      "email": "admin@neonwave.app",
+      "passwordHash": "$2a$10$w3T/YcNEurbd2pPXQSsHDu7ssEHPudHgOHDSSyty/dj4xHvJJv0Fy",
+      "role": "admin",
+      "isPremium": true,
+      "createdAt": "2025-10-05T07:01:59.925Z",
+      "updatedAt": "2025-10-05T07:01:59.925Z"
+    },
+    {
+      "id": "eBkbln6VT75hGUC9uNzTX",
+      "name": "Echo Demo",
+      "email": "demo@neonwave.app",
+      "passwordHash": "$2a$10$9TFWFi7Eth56tRrZC2TCBe34mwxzgpxVEJCwcqCh3CJAIpfPvdZFW",
+      "role": "user",
+      "isPremium": false,
+      "createdAt": "2025-10-05T07:01:59.925Z",
+      "updatedAt": "2025-10-05T07:01:59.925Z"
+    }
+  ],
+  "refreshTokens": [],
+  "anime": [
+    {
+      "slug": "astral-odyssey",
+      "title": "Astral Odyssey",
+      "synopsis": "Pilot Nova Arashi leads an unlikely crew across a neon galaxy to recover lost star relics before a cosmic fracture tears reality apart.",
+      "rating": 4.9,
+      "maturity": "13+",
+      "studio": "Studio Parallax",
+      "status": "Airing",
+      "releaseYear": 2025,
+      "genres": [
+        "Sci-Fi",
+        "Adventure",
+        "Drama"
+      ],
+      "tags": [
+        "Space Opera",
+        "AI Companion",
+        "Heist"
+      ],
+      "banner": "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": true,
+      "isPopular": true,
+      "isTrending": true,
+      "trendingRank": 1,
+      "arcLabel": "Fragments of the Void",
+      "related": [
+        "neon-blitz",
+        "chrono-samurai",
+        "mythic-arena"
+      ],
+      "id": "KGQA0sSwbMVLta28v-KTP",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "slug": "neon-blitz",
+      "title": "Neon Blitz",
+      "synopsis": "Data courier Aira runs covert missions through a cyber-metropolis where memories are a currency and shadows have firewalls.",
+      "rating": 4.7,
+      "maturity": "16+",
+      "studio": "Pulse District",
+      "status": "Completed",
+      "releaseYear": 2024,
+      "genres": [
+        "Action",
+        "Cyberpunk",
+        "Thriller"
+      ],
+      "tags": [
+        "Underground",
+        "Synthwave",
+        "Hacking"
+      ],
+      "banner": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": true,
+      "isPopular": true,
+      "isTrending": true,
+      "trendingRank": 2,
+      "arcLabel": "City of Mirrors",
+      "related": [
+        "astral-odyssey",
+        "quantum-tide"
+      ],
+      "id": "MxjNkJUHqOOW9Me58Wski",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "slug": "chrono-samurai",
+      "title": "Chrono Samurai",
+      "synopsis": "Blademaster Sora slips through fractured timelines to rewrite history before a tyrant digitizes destiny itself.",
+      "rating": 4.8,
+      "maturity": "13+",
+      "studio": "Eternal Forge",
+      "status": "Airing",
+      "releaseYear": 2025,
+      "genres": [
+        "Action",
+        "Fantasy",
+        "Historical"
+      ],
+      "tags": [
+        "Time Travel",
+        "Feudal",
+        "Katana"
+      ],
+      "banner": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": false,
+      "isPopular": true,
+      "isTrending": true,
+      "trendingRank": 3,
+      "arcLabel": "Sundered Timelines",
+      "related": [
+        "astral-odyssey",
+        "mythic-arena"
+      ],
+      "id": "POp51WYfYei8MAhE3M5Yr",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "slug": "mythic-arena",
+      "title": "Mythic Arena",
+      "synopsis": "Chosen fighters channel mythic beasts in a battle royale that determines which dimension survives the season.",
+      "rating": 4.5,
+      "maturity": "13+",
+      "studio": "Obsidian Gate",
+      "status": "Returning",
+      "releaseYear": 2023,
+      "genres": [
+        "Fantasy",
+        "Action",
+        "Tournament"
+      ],
+      "tags": [
+        "Battle Royale",
+        "Elemental",
+        "Team Tactics"
+      ],
+      "banner": "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": false,
+      "isPopular": true,
+      "isTrending": false,
+      "trendingRank": 5,
+      "arcLabel": "Trial of Champions",
+      "related": [
+        "chrono-samurai",
+        "mecha-nocturne"
+      ],
+      "id": "WBo7sRXrZm2CiC7yP9HMH",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "slug": "celestial-garden",
+      "title": "Celestial Garden",
+      "synopsis": "An apprentice astrologer cultivates cosmic flora that bloom with emotions, reshaping the fate of her floating city.",
+      "rating": 4.6,
+      "maturity": "10+",
+      "studio": "Lumen Atelier",
+      "status": "Airing",
+      "releaseYear": 2025,
+      "genres": [
+        "Slice of Life",
+        "Fantasy",
+        "Romance"
+      ],
+      "tags": [
+        "Cozy",
+        "Magic",
+        "Slow Burn"
+      ],
+      "banner": "https://images.unsplash.com/photo-1526312426976-f4d754fa9bd6?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": false,
+      "isPopular": true,
+      "isTrending": true,
+      "trendingRank": 4,
+      "arcLabel": "Bloom of Constellations",
+      "related": [
+        "astral-odyssey",
+        "mythic-arena"
+      ],
+      "id": "iQ2NAJFzpEoAjp9BQcd33",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "slug": "quantum-tide",
+      "title": "Quantum Tide",
+      "synopsis": "A team of chrono-physicists dive into memory oceans to mend paradoxes crashing onto the shores of reality.",
+      "rating": 4.4,
+      "maturity": "13+",
+      "studio": "Epoch Labs",
+      "status": "Hiatus",
+      "releaseYear": 2022,
+      "genres": [
+        "Sci-Fi",
+        "Mystery"
+      ],
+      "tags": [
+        "Parallel Worlds",
+        "Mystery",
+        "Thriller"
+      ],
+      "banner": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
+      "thumbnail": "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=600&q=80",
+      "heroVideo": "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+      "isFeatured": false,
+      "isPopular": false,
+      "isTrending": true,
+      "trendingRank": 6,
+      "arcLabel": "Paradox Drift",
+      "related": [
+        "neon-blitz",
+        "astral-odyssey"
+      ],
+      "id": "fWt6u69Zusx6y0PvKKhMO",
+      "createdAt": "2025-10-05T07:02:00.249Z",
+      "updatedAt": "2025-10-05T07:02:00.249Z"
+    }
+  ],
+  "episodes": [
+    {
+      "id": "NRijkCm9ccjeC1f67DuJ_",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 1,
+      "title": "Fragments of the Void Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "c-4nwHCLeMU_9IcFmynyh",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 2,
+      "title": "Fragments of the Void Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "3lKh-S_9pZPeuuPywWWnW",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 3,
+      "title": "Fragments of the Void Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "iO_J9xFKK_hWI4tDczmtj",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 4,
+      "title": "Fragments of the Void Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "nov8f2f0eXjvjMFooD9vM",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 5,
+      "title": "Fragments of the Void Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "N8Cm-XluymzjSMal4OnIk",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 6,
+      "title": "Fragments of the Void Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "rCBz4JqFGMAVIXg_ecR0q",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 7,
+      "title": "Fragments of the Void Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "9cysYJUkvAnyeJlNJGABt",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 8,
+      "title": "Fragments of the Void Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "Ljh8nBGmJ8g1IYrmGkVRx",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 9,
+      "title": "Fragments of the Void Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "FmG7utoB8bsG-wbbhOeJU",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 10,
+      "title": "Fragments of the Void Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "g02lqKpKjChPRBiH-Tbqz",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 11,
+      "title": "Fragments of the Void Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "xt8KksxvOdEBvmsCPGHPY",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "slug": "astral-odyssey",
+      "number": 12,
+      "title": "Fragments of the Void Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "s1DHuA3HFrEqf9y19ZfWy",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 1,
+      "title": "City of Mirrors Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "Cfg7gmtLA7mD38vrI6PMU",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 2,
+      "title": "City of Mirrors Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "GnHgmffo9kkRQOSQz6aga",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 3,
+      "title": "City of Mirrors Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "w5BTJ2cq4g37YtBKuBEvm",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 4,
+      "title": "City of Mirrors Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "SvQFKizntaNkAa5he7Jkc",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 5,
+      "title": "City of Mirrors Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "Gt-G2tfymgHX8mN6ePojH",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 6,
+      "title": "City of Mirrors Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "VBdRZlNz40KQUFUljgN0g",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 7,
+      "title": "City of Mirrors Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "saCK6rTQcGtNIBYq2016a",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 8,
+      "title": "City of Mirrors Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "Vznns8CgEFemfnfdEjao2",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 9,
+      "title": "City of Mirrors Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "MXrys6NHKLlPbQJdCXFtS",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 10,
+      "title": "City of Mirrors Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "pBH4X31rSXQNlmVqe0ceI",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 11,
+      "title": "City of Mirrors Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "r_bsRA3LEjLFslF8krV2P",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "slug": "neon-blitz",
+      "number": 12,
+      "title": "City of Mirrors Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "nQQ_8rMYK2SqlgCoKQs8s",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 1,
+      "title": "Sundered Timelines Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "lNjtulnkXqbRZoj8eSsoT",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 2,
+      "title": "Sundered Timelines Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "61e2urkbWsmcL66__604H",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 3,
+      "title": "Sundered Timelines Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "-79xOI7n-WPyV87iqjbjJ",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 4,
+      "title": "Sundered Timelines Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "w2cKxRl4nA8aLS1KHAUEw",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 5,
+      "title": "Sundered Timelines Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "rTEMzHPBO5UeVUzeAWCDQ",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 6,
+      "title": "Sundered Timelines Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "-r1kg0Kjyyl-BngbZar0k",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 7,
+      "title": "Sundered Timelines Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "oefXjqoncsinzz0H5ZUSR",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 8,
+      "title": "Sundered Timelines Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "8s-5Lvl4KMwgqm_tqz9z5",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 9,
+      "title": "Sundered Timelines Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "jZ_5qwDOaWWsoBVEdszic",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 10,
+      "title": "Sundered Timelines Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "Pfyy51CId5WAwpkC36RMI",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 11,
+      "title": "Sundered Timelines Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "eNuIut5n92dW7z2KE7uN3",
+      "animeId": "POp51WYfYei8MAhE3M5Yr",
+      "slug": "chrono-samurai",
+      "number": 12,
+      "title": "Sundered Timelines Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "LMjaQ71SoTxi6lHI6se76",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 1,
+      "title": "Trial of Champions Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "0zoNYX6S7mYqBR0r1qg0H",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 2,
+      "title": "Trial of Champions Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "eSO7O1TX1N_ffNdr9nhq8",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 3,
+      "title": "Trial of Champions Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "lP_T4M4uEyIT68ATU4x4C",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 4,
+      "title": "Trial of Champions Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "COyBj7vVgUnbGwgdjvJgt",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 5,
+      "title": "Trial of Champions Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "DVqTNWZnGZF1fPV0B3Jxn",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 6,
+      "title": "Trial of Champions Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "mx33e1neGbpoDOM6QdgEX",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 7,
+      "title": "Trial of Champions Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.249Z"
+    },
+    {
+      "id": "v58q0jKlXQYssOIIgzJLe",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 8,
+      "title": "Trial of Champions Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "_2LKYBwYWoH8GktjA3cUd",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 9,
+      "title": "Trial of Champions Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "090W4oBUC3CEW7-Uiz0U_",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 10,
+      "title": "Trial of Champions Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "5Sw4NVYuEGl0kFm1s6QAH",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 11,
+      "title": "Trial of Champions Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "9bJAhp6lPBnp3HbyqVhBD",
+      "animeId": "WBo7sRXrZm2CiC7yP9HMH",
+      "slug": "mythic-arena",
+      "number": 12,
+      "title": "Trial of Champions Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "ghUtjD5BxiSklGVvKJhXz",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 1,
+      "title": "Bloom of Constellations Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "BwOpRxkNiGuYHHZVFtbD5",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 2,
+      "title": "Bloom of Constellations Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "5Keu9cblGCGy9PfJ11E7T",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 3,
+      "title": "Bloom of Constellations Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "vAcdxuN04iAk8Y3LOjSkD",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 4,
+      "title": "Bloom of Constellations Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "xJsY68tkPYs1PbtZeJSO5",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 5,
+      "title": "Bloom of Constellations Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "OnVMDObsnGWoqZYRgBxrD",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 6,
+      "title": "Bloom of Constellations Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "kzxtRmlw4wvpEX7Zh93rL",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 7,
+      "title": "Bloom of Constellations Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "DlhAIlf3WsEZKbdWXtKLD",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 8,
+      "title": "Bloom of Constellations Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "UNROXw6syM3PNqq-QJz-V",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 9,
+      "title": "Bloom of Constellations Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "XR0vTdkCqruDoQvMw63lF",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 10,
+      "title": "Bloom of Constellations Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "uf1TnUtGPsBa_NXuhZ6QQ",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 11,
+      "title": "Bloom of Constellations Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "YL2U7Vu2ncC0h6G6fGRZh",
+      "animeId": "iQ2NAJFzpEoAjp9BQcd33",
+      "slug": "celestial-garden",
+      "number": 12,
+      "title": "Bloom of Constellations Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "Ag8zXVPmjhat30BtiPlYg",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 1,
+      "title": "Paradox Drift Episode 1",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2023-12-31T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "Vj1zYHONfOEPoRVT1SW3U",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 2,
+      "title": "Paradox Drift Episode 2",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-02-01T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "o3MEbYij9TO6TX-q-uMkn",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 3,
+      "title": "Paradox Drift Episode 3",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-03-02T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "NaX4OlUaScuocjteRuFAv",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 4,
+      "title": "Paradox Drift Episode 4",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-04-03T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "SpJCnTE5-N77ZATYdyWSQ",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 5,
+      "title": "Paradox Drift Episode 5",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-05-04T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "JstIbKaguNhZbXJBLbn40",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 6,
+      "title": "Paradox Drift Episode 6",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-06-05T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "PMlJBk-2pakNaLwfhbVyz",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 7,
+      "title": "Paradox Drift Episode 7",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-07-06T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "KaOYxhrBOxSwxDMcdvvTu",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 8,
+      "title": "Paradox Drift Episode 8",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-08-07T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "Y5A-4YEO7nMlIxWTGs-gE",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 9,
+      "title": "Paradox Drift Episode 9",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-09-08T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "9-qppJcExFL9vyeOWgvwa",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 10,
+      "title": "Paradox Drift Episode 10",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-10-09T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "4X-DbHX8ys3ismETWg3rq",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 11,
+      "title": "Paradox Drift Episode 11",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 22,
+      "airDate": "2024-11-10T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    },
+    {
+      "id": "0QwSOGc-It3VPd81w_bsx",
+      "animeId": "fWt6u69Zusx6y0PvKKhMO",
+      "slug": "quantum-tide",
+      "number": 12,
+      "title": "Paradox Drift Episode 12",
+      "synopsis": "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
+      "duration": 25,
+      "airDate": "2024-12-11T17:00:00.000Z",
+      "thumbnail": "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
+      "createdAt": "2025-10-05T07:02:00.250Z"
+    }
+  ],
+  "genres": [
+    "Action",
+    "Adventure",
+    "Cyberpunk",
+    "Drama",
+    "Fantasy",
+    "Historical",
+    "Mystery",
+    "Romance",
+    "Sci-Fi",
+    "Slice of Life",
+    "Thriller",
+    "Tournament"
+  ],
+  "posts": [
+    {
+      "id": "KQbQabkZ6agwfeGzOL9t9",
+      "title": "Episode 8 blew my mind!",
+      "message": "The reveal in Astral Odyssey episode 8 was the payoff I was waiting for. Who else caught the stardust glyph hidden in the nebula shot?",
+      "tags": [
+        "astral-odyssey",
+        "theorycraft"
+      ],
+      "likes": 42,
+      "userId": "eBkbln6VT75hGUC9uNzTX",
+      "createdAt": "2025-10-04T19:01:59.909Z",
+      "author": "Echo Demo",
+      "likedBy": [
+        "j3rSc0tIUgYvDK7UlnLH8"
+      ],
+      "updatedAt": "2025-10-05T07:01:59.925Z",
+      "comments": [
+        {
+          "id": "8OOwfaZCQBKFxMaNqs2mv",
+          "postId": "KQbQabkZ6agwfeGzOL9t9",
+          "userId": "j3rSc0tIUgYvDK7UlnLH8",
+          "message": "Absolutely! The glyph matches the relic pattern from episode 2.",
+          "createdAt": "2025-10-04T21:02:00.250Z",
+          "author": "Nova Admin"
+        }
+      ]
+    },
+    {
+      "id": "STIeX6uXXrfYxicSCw2Vp",
+      "title": "Neon Blitz soundtrack drop?",
+      "message": "Rumor says the producers are releasing the mixtape this Friday. Track 4 already lives rent free in my head.",
+      "tags": [
+        "neon-blitz",
+        "music"
+      ],
+      "likes": 25,
+      "userId": "j3rSc0tIUgYvDK7UlnLH8",
+      "createdAt": "2025-10-03T19:01:59.910Z",
+      "author": "Nova Admin",
+      "likedBy": [],
+      "updatedAt": "2025-10-05T07:01:59.925Z"
+    },
+    {
+      "id": "XpU7nmv7FB-gPhkFMf4AL",
+      "title": "Why Celestial Garden feels so cozy",
+      "message": "It nails the heartbeats-before-sunrise vibe. The color palettes alone are pure serotonin.",
+      "tags": [
+        "celestial-garden",
+        "comfort-watch"
+      ],
+      "likes": 18,
+      "userId": "j3rSc0tIUgYvDK7UlnLH8",
+      "createdAt": "2025-10-02T07:01:59.910Z",
+      "author": "Nova Admin",
+      "likedBy": [],
+      "updatedAt": "2025-10-05T07:01:59.925Z"
+    }
+  ],
+  "comments": [
+    {
+      "id": "8OOwfaZCQBKFxMaNqs2mv",
+      "postId": "KQbQabkZ6agwfeGzOL9t9",
+      "userId": "j3rSc0tIUgYvDK7UlnLH8",
+      "message": "Absolutely! The glyph matches the relic pattern from episode 2.",
+      "createdAt": "2025-10-04T21:02:00.250Z",
+      "author": "Nova Admin"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "0lhxkZY2vOGfbMMdxkYck",
+      "userId": "eBkbln6VT75hGUC9uNzTX",
+      "animeId": "KGQA0sSwbMVLta28v-KTP",
+      "createdAt": "2025-10-05T07:01:59.925Z"
+    },
+    {
+      "id": "yJSl9G7HCBhXPijgkV9bO",
+      "userId": "eBkbln6VT75hGUC9uNzTX",
+      "animeId": "MxjNkJUHqOOW9Me58Wski",
+      "createdAt": "2025-10-05T07:01:59.925Z"
+    }
+  ],
+  "promos": [
+    {
+      "id": "T8UccBlXPQck6begB1uI6",
+      "title": "Unlock 7-Day Prime Trial",
+      "copy": "Experience ad-free simulcasts and download episodes for offline hype.",
+      "action": "Start Trial"
+    },
+    {
+      "id": "rUmTVBPvhwwjqIRdM4mFp",
+      "title": "Limited Neon Blitz Figures",
+      "copy": "Preorder the Nova and Aira duo statues with luminous stands.",
+      "action": "Preorder Now"
+    }
+  ],
+  "stats": [
+    {
+      "id": "b9PYxNniEpwjIp4utOZJ0",
+      "label": "Simulcasts",
+      "value": "45+"
+    },
+    {
+      "id": "_KsrA23JzV_9PYRupoRzA",
+      "label": "Premium Members",
+      "value": "120k"
+    },
+    {
+      "id": "Ac2rwtBfhEHz66XrS_QzI",
+      "label": "Community Posts",
+      "value": "32k"
+    }
+  ],
+  "plans": [
+    {
+      "id": "free",
+      "name": "Free Explorer",
+      "priceMonthly": 0,
+      "priceYearly": 0,
+      "features": [
+        "HD streaming with limited ads",
+        "Community hub access",
+        "Up to 3 favorites saved"
+      ],
+      "highlight": false
+    },
+    {
+      "id": "monthly",
+      "name": "Prime Monthly",
+      "priceMonthly": 7.99,
+      "priceYearly": 79.99,
+      "features": [
+        "Ad-free simulcasts",
+        "Offline playlists",
+        "Watch party hosting",
+        "Priority support"
+      ],
+      "highlight": true
+    },
+    {
+      "id": "annual",
+      "name": "Prime Annual",
+      "priceMonthly": 0,
+      "priceYearly": 84.99,
+      "features": [
+        "Two months free",
+        "Exclusive merch drops",
+        "VIP community badge",
+        "Neon Archive access"
+      ],
+      "highlight": false
+    }
+  ],
+  "benefits": [
+    {
+      "title": "Simulcast Speed",
+      "description": "Replays drop in minutes thanks to edge delivery tuned for anime marathons."
+    },
+    {
+      "title": "Community Power",
+      "description": "Host watch parties, polls, and collaborative playlists with zero setup."
+    },
+    {
+      "title": "Living Library",
+      "description": "Dive into vault episodes, director commentaries, and lore codex drops before anyone else."
+    }
+  ]
+}

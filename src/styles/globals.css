@@ -1,0 +1,103 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+html {
+  @apply bg-midnight;
+}
+
+body {
+  @apply bg-transparent text-gray-100 min-h-screen font-sans antialiased;
+  background-image: radial-gradient(circle at 10% 20%, rgba(124, 58, 237, 0.35), transparent 55%), radial-gradient(circle at 80% 0%, rgba(45, 212, 191, 0.25), transparent 60%);
+}
+
+html.light {
+  color-scheme: light;
+}
+
+html.light body {
+  @apply bg-slate-50 text-slate-900;
+  background-image: radial-gradient(circle at 15% 15%, rgba(124, 58, 237, 0.15), transparent 55%), radial-gradient(circle at 85% 0%, rgba(56, 189, 248, 0.15), transparent 60%);
+}
+
+a {
+  @apply text-gray-100 transition-colors duration-200 ease-out;
+}
+
+a:hover {
+  @apply text-highlight;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-midnight-500;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-violet-neon/70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-violet-neon;
+}
+
+.gradient-border {
+  position: relative;
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(120deg, rgba(124, 58, 237, 0.5), rgba(45, 212, 191, 0.5));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+
+.gradient-border:hover::before,
+.gradient-border:focus-visible::before {
+  opacity: 1;
+}
+
+.card-hover {
+  @apply transition-transform duration-300 ease-out;
+}
+
+.card-hover:hover {
+  transform: translateY(-6px) scale(1.01);
+}
+@layer base {
+  html.light .bg-midnight,
+  html.light .bg-midnight-500,
+  html.light .bg-midnight-700\/40,
+  html.light .bg-midnight\/80 {
+    @apply bg-white;
+  }
+  html.light .bg-white\/5 {
+    @apply bg-white shadow-md;
+  }
+  html.light .bg-white\/10 {
+    @apply bg-white shadow;
+  }
+  html.light .border-white\/5,
+  html.light .border-white\/10,
+  html.light .border-white\/20 {
+    @apply border-slate-200;
+  }
+  html.light .bg-black\/40,
+  html.light .bg-black\/60 {
+    background-color: rgba(15, 23, 42, 0.12);
+  }
+  html.light .bg-black\/80 {
+    background-color: rgba(15, 23, 42, 0.2);
+  }
+}
