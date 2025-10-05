@@ -1,4 +1,24 @@
-﻿import { nanoid } from "nanoid";
+import { nanoid } from "nanoid";
+
+const sampleSources = [
+  {
+    label: "1080p MP4",
+    type: "video/mp4",
+    src: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+  },
+  {
+    label: "720p WebM",
+    type: "video/webm",
+    src: "https://filesamples.com/samples/video/webm/sample_640x360.webm",
+  },
+  {
+    label: "Archive MKV",
+    type: "video/x-matroska",
+    src: "https://filesamples.com/samples/video/mkv/sample_960x400_ocean_with_audio.mkv",
+  },
+];
+
+export const defaultStreamSources = sampleSources;
 
 const createEpisodes = (animeId, slug, total, arcLabel) =>
   Array.from({ length: total }).map((_, index) => {
@@ -12,6 +32,8 @@ const createEpisodes = (animeId, slug, total, arcLabel) =>
       synopsis:
         "Alliances shift and mysteries deepen as the crew pushes further into the unknown edges of the NeonWave universe.",
       duration: 22 + ((index * 3) % 6),
+      videoSources: sampleSources,
+      videoUrl: sampleSources[0].src,
       airDate: new Date(2024, index % 12, (index % 28) + 1).toISOString(),
       thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=800&q=80",
       createdAt: new Date().toISOString(),
@@ -34,6 +56,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1523475472560-d2df97ec485c?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: true,
     isPopular: true,
     isTrending: true,
@@ -56,6 +79,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: true,
     isPopular: true,
     isTrending: true,
@@ -78,6 +102,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: false,
     isPopular: true,
     isTrending: true,
@@ -100,6 +125,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: false,
     isPopular: true,
     isTrending: false,
@@ -122,6 +148,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1526312426976-f4d754fa9bd6?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: false,
     isPopular: true,
     isTrending: true,
@@ -144,6 +171,7 @@ const baseAnime = [
     banner: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1600&q=80",
     thumbnail: "https://images.unsplash.com/photo-1526498460520-4c246339dccb?auto=format&fit=crop&w=600&q=80",
     heroVideo: "https://storage.googleapis.com/coverr-main/mp4/Mt_Baker.mp4",
+    heroSources: sampleSources,
     isFeatured: false,
     isPopular: false,
     isTrending: true,
@@ -282,3 +310,65 @@ export const commentSeed = (posts) => [
     createdAt: new Date(Date.now() - 1000 * 60 * 60 * 10).toISOString(),
   },
 ];
+
+export const aboutContent = {
+  mission:
+    "NeonWave stitches together licensed catalogs with live AniDB metadata so fans can binge, discover, and discuss without leaving the platform.",
+  highlights: [
+    {
+      title: "Live AniDB sync",
+      description:
+        "Our backend refreshes AniDB recommendations every few hours and folds them into the library, so new titles appear the same day they trend.",
+    },
+    {
+      title: "Episode metadata handled",
+      description:
+        "Episode slugs, durations, and thumbnails are normalized in SQLite. Swap the Coverr clip with your own stream and you're production ready.",
+    },
+    {
+      title: "Community baked in",
+      description:
+        "Discussion threads, likes, and moderation roles are wired up. Hook in your auth provider and ship a full-featured fan hub.",
+    },
+  ],
+  faqs: [
+    {
+      question: "Dari mana data anime berasal?",
+      answer:
+        "Katalog dasar diisi ulang menggunakan API AniDB setiap seed dijalankan. Anda dapat menambahkannya dengan katalog internal melalui dashboard admin.",
+    },
+    {
+      question: "Bisakah saya menghubungkan CDN atau penyedia streaming saya sendiri?",
+      answer:
+        "Ya. Setiap episode menyimpan kolom video_url. Isi dengan embed MixDrop, Doodstream, atau origin Anda sendiri lalu tampilkan lewat komponen Player.",
+    },
+    {
+      question: "Fitur apa saja yang siap untuk produksi?",
+      answer:
+        "Autentikasi JWT, daftar favorit, status premium, dan komunitas forum sudah berjalan di server Express + SQLite. Tinggal hubungkan pembayaran dan storage final.",
+    },
+  ],
+  hero:
+    "Kami membangun NeonWave untuk studio kecil dan komunitas anime independen yang butuh solusi streaming modern tanpa repot menyusun UI dari nol.",
+};
+
+export const footerContent = {
+  product: [
+    { label: "Beranda", href: "/" },
+    { label: "Daftar Anime", href: "/search" },
+    { label: "Komunitas", href: "/community" },
+    { label: "Premium", href: "/premium" },
+  ],
+  company: [
+    { label: "Tentang", href: "/about" },
+    { label: "Kebijakan Privasi", href: "/legal/privacy" },
+    { label: "Syarat Layanan", href: "/legal/terms" },
+    { label: "Status Sistem", href: "https://status.neonwave.app" },
+  ],
+  connect: [
+    { name: "Email Support", href: "mailto:support@neonwave.app" },
+    { name: "Twitter", href: "https://twitter.com/neonwave" },
+    { name: "GitHub", href: "https://github.com/neonwave-labs" },
+    { name: "Discord", href: "https://discord.gg/neonwave" },
+  ],
+};
